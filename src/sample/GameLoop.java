@@ -48,14 +48,15 @@ public class GameLoop extends Application {
     static File deathsoundFile = new File("src/media/sound/death1.mp3");
     static Media deathsoundMedia = new Media(deathsoundFile.toURI().toString());
     static MediaPlayer deathsoundPlayer = new MediaPlayer(deathsoundMedia);
-    Group root = new Group();
-    Pane backgroundPane = new Pane(); //TODO NEU für Background
-    Group splashscreen = new Group();
-    //TODO NEU - Background stuff
-    Image imgSource;
-    BackgroundImage backgroundImage;
-    Background backgroundView;
+    private Group root = new Group();
+    private Pane backgroundPane = new Pane(); //TODO NEU für Background
+    private Group splashscreen = new Group();
+    private Image imgSource;
+    private BackgroundImage backgroundImage;
+    private Background backgroundView;
     private long lastUpdate = 0; //für Geschwindigkeitssteuerung
+    private static final int SPLASH_WIDTH = 1000;
+    private static final int SPLASH_HEIGHT = 500;
 
     public static void restartIngamemusic() { //Startet Ingame Musik von vorne
         ingamemusicPlayer.seek(Duration.ZERO);
@@ -137,6 +138,7 @@ public class GameLoop extends Application {
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
+       
         
 
         //TODO NEU - Background stuff
@@ -174,11 +176,11 @@ public class GameLoop extends Application {
 
         Scene intro = new Scene(splashscreen, primaryStage.getWidth(), primaryStage.getHeight());
         splashscreen.getChildren().add(splashView);
-        splashView.setFitHeight(500);
-        splashView.setFitWidth(1000);
+        splashView.setFitHeight(SPLASH_HEIGHT);
+        splashView.setFitWidth(SPLASH_WIDTH);
         intro.setFill(Color.BLACK);
-        splashView.setX(400);
-        splashView.setY(100);
+        splashView.setX(((primaryStage.getWidth()+(primaryStage.getHeight()/2))- SPLASH_WIDTH)/2);
+        splashView.setY((primaryStage.getHeight() - SPLASH_HEIGHT)/2);
         primaryStage.setScene(intro);
         primaryStage.setTitle("Rainbow Snake");
 <<<<<<< HEAD
