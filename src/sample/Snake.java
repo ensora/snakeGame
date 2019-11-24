@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 public class Snake {
 
-    public long frameDelay = 25000000; //25-30 mill. guter Startwert
+    public long frameDelay = 250000000; //250-300 mill. guter Startwert
     public long delayDecrease = 600000;  //von speedRefresh abziehen
     //GameObject food = new GameObject();
     private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
@@ -37,7 +37,7 @@ public class Snake {
         group.getChildren().add(snake.getFirst());
         food.setFood(group, stage); // setet neues random food und getchilded es
         score.scoreRespawn(group); // respawn Mehtode für Score
-        frameDelay = 2500; // zurück zum Standardwert
+        frameDelay = 250000000; // zurück zum Standardwert
 
         control.stopMovement();
 

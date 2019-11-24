@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
@@ -85,11 +87,20 @@ public class GameLoop extends Application {
     public void start(Stage primaryStage) throws Exception {
         AnimationTimer timer;
 
-        primaryStage.setWidth(1500);
-        primaryStage.setHeight(700);
+        //primaryStage.setWidth(1500);
+        //primaryStage.setHeight(700);
 
-        primaryStage.setMinHeight(50);
-        primaryStage.setMinWidth(50);
+        //primaryStage.setMinHeight(50);
+        //primaryStage.setMinWidth(50);
+        
+        //PM: set window according to the monitor size
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+        primaryStage.setX(bounds.getMinX());
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setWidth(bounds.getWidth());
+        primaryStage.setHeight(bounds.getHeight());
+        
 
         //TODO NEU - Background stuff
         imgSource = new Image("media/grassTile.png");
@@ -128,6 +139,11 @@ public class GameLoop extends Application {
         splashView.setY(100);
         primaryStage.setScene(intro);
         primaryStage.setTitle("Rainbow Snake");
+        
+        gameboard.setStartInfo(root, primaryStage); //PM: Start Info 
+        
+        
+        
         primaryStage.show();
         splashPlayer.play();
 
