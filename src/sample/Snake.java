@@ -10,8 +10,10 @@ import java.util.LinkedList;
 
 public class Snake {
 
-    public long frameDelay = 250000000; //250-300 mill. guter Startwert
-    public long delayDecrease = 600000;  //von speedRefresh abziehen
+	private static final long START_FRAMEDELAY = 250000000;
+	private static final long MAX_FRAMEDELAY = 80000;
+	private static final long DECREASE_DELAY = 6000000;  //von speedRefresh abziehen
+    public long frameDelay = START_FRAMEDELAY; //250-300 mill. guter Startwert   
     //GameObject food = new GameObject();
     private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
     private LinkedList<Rectangle> snake = new LinkedList<>();
@@ -37,7 +39,7 @@ public class Snake {
         group.getChildren().add(snake.getFirst());
         food.setFood(group, stage); // setet neues random food und getchilded es
         score.scoreRespawn(group); // respawn Mehtode für Score
-        frameDelay = 250000000; // zurück zum Standardwert
+        frameDelay = START_FRAMEDELAY; // zurück zum Standardwert
 
         control.stopMovement();
 
@@ -50,7 +52,7 @@ public class Snake {
         snake.clear();
         snake.add(head);
         snake.getFirst().relocate(stage.getWidth() / 2, stage.getHeight() / 2);
-        frameDelay = 250; // zurück zum Standardwert
+        frameDelay = START_FRAMEDELAY; // zurück zum Standardwert
         control.stopMovement();
 
     }
@@ -61,8 +63,8 @@ public class Snake {
         snake.getLast().setFill(Color.color(food.getColor()[0], food.getColor()[1], food.getColor()[2])); //holt sich aus deathsoundMedia GameObject die Color von Food für sein Tail
         group.getChildren().add(snake.getLast()); //bringt den tail auf die Szene
         score.upScoreValue(); // added +1 zu scoreValue
-        if (frameDelay >= 80000) { //maximale Grenze sonst wirds zu schnell
-            frameDelay -= delayDecrease;
+        if (frameDelay >= MAX_FRAMEDELAY) { //maximale Grenze sonst wirds zu schnell
+            frameDelay -= DECREASE_DELAY;
             System.out.println(frameDelay);
         }
 
