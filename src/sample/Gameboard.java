@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 package sample;
 
 
+=======
+>>>>>>> origin/master
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -39,6 +42,18 @@ public class Gameboard {
         return touchTail;
     }
 
+<<<<<<< HEAD
+=======
+    public void setStartInfo(Group group, Stage stage) {
+    	Label startInfo = new Label("\nTo move press w/a/s/d. \nDon't hit the walls!");
+    	startInfo.setFont(new Font("Calibri",50));
+    	startInfo.setTextFill(Color.BLACK);
+
+        //group.getChildren().clear();
+        //startInfo.relocate(200, stage.getHeight()/2-300);
+        group.getChildren().add(startInfo);
+    }
+>>>>>>> origin/master
 
     public void setDeathTouchWall(Score score, Group group, Stage stage) {
         Label deathTouchWall = new Label(stringsTouchWall()[rand.nextInt(9)]

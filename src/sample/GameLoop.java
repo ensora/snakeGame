@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 package sample;
 
+=======
+>>>>>>> origin/master
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+<<<<<<< HEAD
+=======
+import javafx.geometry.Rectangle2D;
+>>>>>>> origin/master
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -13,6 +20,10 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+<<<<<<< HEAD
+=======
+import javafx.stage.Screen;
+>>>>>>> origin/master
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
@@ -82,6 +93,7 @@ public class GameLoop extends Application {
 
 
     @Override
+<<<<<<< HEAD
     public void start(Stage primaryStage) throws Exception {
         AnimationTimer timer;
 
@@ -108,13 +120,54 @@ public class GameLoop extends Application {
         Score score = new Score(root);
         food.setFood(root, primaryStage);//setzt ein neues Food random ab
         Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
+=======
+    public void start(final Stage primaryStage) throws Exception {
+        final AnimationTimer timer;
+
+        //primaryStage.setWidth(1500);
+        //primaryStage.setHeight(700);
+
+        //primaryStage.setMinHeight(50);
+        //primaryStage.setMinWidth(50);
+        
+        //PM: set window according to the monitor size
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+        primaryStage.setX(bounds.getMinX());
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setWidth(bounds.getWidth());
+        primaryStage.setHeight(bounds.getHeight());
+        
+
+        //TODO NEU - Background stuff
+        //imgSource = new Image("../media/image/grassTile.png");
+        //backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
+       //         BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        //backgroundView = new Background(backgroundImage);
+        //backgroundPane.setBackground(backgroundView);
+        //TODO END Background
+
+
+        final int offset = 21; //TODO Variable Namen anpassen
+        final Gameboard gameboard = new Gameboard(); // TODO NEW
+        final Control control = new Control();
+        final Snake snake = new Snake(root, primaryStage); //erstellt neues Snake Listen Objekt und getChilded es
+        final GameObject food = new GameObject();
+        final Score score = new Score(root);
+        food.setFood(root, primaryStage);//setzt ein neues Food random ab
+        final Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
+>>>>>>> origin/master
         backgroundPane.getChildren().add(root); //TODO NEU Background - root (Group) zu backgroundPane als Child added
 
         Rectangle blackrect = new Rectangle();  //Schwarzer Block der für eine Szenentransition missbraucht wird
         blackrect.setFill(Color.BLACK);
         blackrect.setHeight(primaryStage.getHeight());
         blackrect.setWidth(primaryStage.getWidth());
+<<<<<<< HEAD
         FadeTransition fadeblacktotransparent = new FadeTransition(Duration.millis(700), blackrect);
+=======
+        final FadeTransition fadeblacktotransparent = new FadeTransition(Duration.millis(700), blackrect);
+>>>>>>> origin/master
         fadeblacktotransparent.setFromValue(1.0);
         fadeblacktotransparent.setToValue(0.0);
         root.getChildren().add(blackrect);
@@ -128,6 +181,13 @@ public class GameLoop extends Application {
         splashView.setY(100);
         primaryStage.setScene(intro);
         primaryStage.setTitle("Rainbow Snake");
+<<<<<<< HEAD
+=======
+        
+        gameboard.setStartInfo(root, primaryStage); //PM: Start Info
+
+        
+>>>>>>> origin/master
         primaryStage.show();
         splashPlayer.play();
 
