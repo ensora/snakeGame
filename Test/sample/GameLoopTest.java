@@ -39,7 +39,10 @@ public class GameLoopTest {
     @Test
     public void start() {
 
-        AnimationTimer timer;
+    }
+
+    @Test
+    public void checkIfFileExist() {
 
         //check if file exist
         assertEquals(splashFile.exists(),true);
