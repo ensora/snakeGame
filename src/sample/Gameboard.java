@@ -1,5 +1,5 @@
-package sample;
 
+package sample;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -18,14 +18,14 @@ public class Gameboard {
 
     private String[] stringsTouchWall() {
         touchWall[0] = "Stop touching the wall \nas if it's your boyfriend.....";
-        touchWall[1] = "You never touch me \nin the way you touched that wall :*(";
-        touchWall[2] = "Walls are your favorite thing huh?";
+        touchWall[1] = "You never touch me \nin the way you touched \nthat wall :*(";
+        touchWall[2] = "Walls are your favorite \nthing, huh?";
         touchWall[3] = "The wall you touched is solid,\n no comin through";
         touchWall[4] = "Wall:1, You:0";
         touchWall[5] = "Mimimimi you dead!";
         touchWall[6] = "No one would survive this...";
         touchWall[7] = "You colored the wall, \nwhat a nice thing to do";
-        touchWall[8] = "No touchy touchy le wall mi Friend! ";
+        touchWall[8] = "No touchy touchy le wall \nmi Friend! ";
         return touchWall;
     }
 
@@ -38,6 +38,7 @@ public class Gameboard {
         touchTail[5] = "You touched that ass (tail..)!";
         return touchTail;
     }
+
 
     public void setStartInfo(Group group, Stage stage) {
     	Label startInfo = new Label("\nTo move press w/a/s/d. \nDon't hit the walls!");
