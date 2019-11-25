@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e987d22-1d0f-430d-b08c-c24dd031ca3c" name="Default Changelist" comment="">
+    <list default="true" id="7e987d22-1d0f-430d-b08c-c24dd031ca3c" name="Default Changelist" comment="Refactoring">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/Control$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/GameLoop$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/GameLoop$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/GameLoop$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/Score.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +88,7 @@
         <item itemvalue="JUnit.GameLoopTest" />
         <item itemvalue="JUnit.All in snake" />
         <item itemvalue="Application.GameLoop" />
-        <item itemvalue="Application.GameLoop" />
+        <item itemvalue="JUnit.GameLoopTest" />
       </list>
     </recent_temporary>
   </component>
@@ -94,11 +103,23 @@
       <option name="presentableId" value="Default" />
       <updated>1574101668093</updated>
       <workItem from="1574101670007" duration="1691000" />
+      <workItem from="1574628454689" duration="1224000" />
+      <workItem from="1574700439315" duration="2477000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -113,6 +134,12 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="undo falsch code" />
+    <MESSAGE value="Temporär felder löschen" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -125,13 +152,13 @@
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/sample/GameLoop.java</url>
           <line>43</line>
-          <properties field="imgSource" class="sample.GameLoop" />
+          <properties field="backgroundPane" class="sample.GameLoop" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/sample/GameObject.java</url>
           <line>15</line>
-          <properties field="fbound" class="sample.GameObject" />
+          <properties field="redPart" class="sample.GameObject" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
