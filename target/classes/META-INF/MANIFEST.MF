@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: src.sample.game.GameLoop
+Main-Class: sample.src.sample.GameLoop
