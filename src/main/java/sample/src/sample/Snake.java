@@ -1,9 +1,10 @@
+package sample.src.sample;
+
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.util.LinkedList;
 
 public class Snake {
@@ -41,7 +42,7 @@ public class Snake {
 
     }
 
-    public void snakeDead(Group group, GameObject food, Score score, Control control, Stage stage) {
+    public void snakeDead(Group group, Control control, Stage stage) {
         //Last Minute - wird gebraucht um Score nicht zu früh zu löschen (überlegung nur respawn zu verwenden mit dieser implementierung fehlgeschlagen)
 
         group.getChildren().clear();
@@ -54,7 +55,7 @@ public class Snake {
     }
 
 
-    public void eat(Group group, Score score, GameObject food) {//added ein tail rectangle, übernimmt color von food,erhöht score um 1, macht schneller
+    private void eat(Group group, Score score, GameObject food) {//added ein tail rectangle, übernimmt color von food,erhöht score um 1, macht schneller
         snake.add(new Rectangle(20, 20));
         snake.getLast().setFill(Color.color(food.getColor()[0], food.getColor()[1], food.getColor()[2])); //holt sich aus deathsoundMedia GameObject die Color von Food für sein Tail
         group.getChildren().add(snake.getLast()); //bringt den tail auf die Szene
@@ -78,7 +79,7 @@ public class Snake {
 
         if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // Überprüfung ob Head den Rand trifft
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
-            snakeDead(group, food, score, control, stage);
+            snakeDead(group, control, stage);
             gameboard.setDeathTouchWall(score, group, stage);
             GameLoop.playDeathsound();
             GameLoop.stopIngamemusic();
@@ -88,15 +89,13 @@ public class Snake {
 
         for (int i = 1; i < this.snake.size(); i++) { //Überprüfung Snake beisst sich in den oasch
             if (headBox.intersects(this.snake.get(i).getBoundsInParent())) {
-                System.out.println("DEAD");
-                snakeDead(group, food, score, control, stage);
+                System.err.println("Dead");
+                snakeDead(group, control, stage);
                 gameboard.setDeathTouchTail(score, group, stage);
                 GameLoop.playDeathsound();
                 GameLoop.stopIngamemusic();
                 GameLoop.restartGameovermusic();
             }
-
-
         }
     }
 

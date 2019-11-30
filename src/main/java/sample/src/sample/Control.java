@@ -1,3 +1,5 @@
+package sample.src.sample;
+
 import javafx.scene.Group;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -6,7 +8,7 @@ public class Control {
 
     private boolean goUp, goDown, goRight, goLeft;
 
-    public void stopMovement() {
+    void stopMovement() {
         goUp = false;
         goDown = false;
         goRight = false;
@@ -73,8 +75,6 @@ public class Control {
                 GameLoop.stopGameovermusic();
                 GameLoop.restartIngamemusic();
                 break;
-
-
         }
     }
 }
