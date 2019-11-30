@@ -81,11 +81,14 @@ public class Snake {
 
     public void collision(GameObject food, Group group, Bounds foodBound, Score score, Control control, Stage stage, Gameboard gameboard) { //gameobject sind obstacles so wie Food, Boundarys für Collisions
         Bounds headBox = head.getBoundsInParent(); // erstellt eine Boundary um den Snakekopf
+
+
         if (headBox.intersects(foodBound)) {//überprüfung Collision Head mit Food Boundary
             eat(group, score, food);
             food.setFood(group, stage);
             GameLoop.playEatsound();
         }
+
         if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // Überprüfung ob Head den Rand trifft
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
             snakeDead(group, food, score, control, stage);
