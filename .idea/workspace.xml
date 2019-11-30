@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e987d22-1d0f-430d-b08c-c24dd031ca3c" name="Default Changelist" comment="Merge branch 'Units' , some Refactoring">
-      <change afterPath="$PROJECT_DIR$/Test/sample/GameLoopTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/Control.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/sample/Control.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/GameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/sample/GameLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/sample/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/Gameboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/snake/sample/Gameboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/snake/sample/Snake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snake.iml" beforeDir="false" afterPath="$PROJECT_DIR$/snake.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Snake.java" afterDir="false" />
-    </list>
+    <list default="true" id="7e987d22-1d0f-430d-b08c-c24dd031ca3c" name="Default Changelist" comment="some Refactoring, Logging" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +140,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.GameLoop" />
+      <item itemvalue="JUnit.All in snake" />
+      <item itemvalue="JUnit.GameLoopTest" />
+      <item itemvalue="JUnit.SnakeTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GameLoop" />
