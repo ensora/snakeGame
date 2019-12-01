@@ -200,3 +200,4 @@ hs_err_pid*
 /resources/apache-log4j-2.12.1-bin/LICENSE.txt
 /resources/apache-log4j-2.12.1-bin/NOTICE.txt
 /resources/apache-log4j-2.12.1-bin/RELEASE-NOTES.md
+/target/
