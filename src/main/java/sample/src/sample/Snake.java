@@ -82,6 +82,7 @@ public class Snake {
 
 
         if (headBox.intersects(foodBound)) {
+        	eat(group, score, food);
             food.setFood(group, stage);
             GameLoop.playEatsound();
         }
