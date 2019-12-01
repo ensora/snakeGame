@@ -5,29 +5,31 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
+
 import java.util.LinkedList;
 
 public class Snake {
 
-    public long frameDelay = 250000000; //250-300 mill. guter Startwert
-    public long delayDecrease = 600000;  //von speedRefresh abziehen
-    //GameObject food = new GameObject();
+    private static long frameDelay = 250000000; //250-300 mill. guter Startwert
     private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
-    private LinkedList<Rectangle> snake = new LinkedList<>();
+    private LinkedList<Rectangle> snake = new LinkedList<Rectangle>();
 
-    public Snake(Group group, Stage stage) {
+    private static org.apache.log4j.Logger logSnake = org.apache.log4j.Logger.getLogger(Snake.class);
+
+    Snake(Group group, Stage stage) {
         snake.add(head);
         snake.getFirst().relocate(stage.getWidth() / 2, stage.getHeight() / 2);
         group.getChildren().add(snake.getFirst());
 
     }
 
-    public long getframeDelay() {
+    long getframeDelay() {
         return frameDelay;
     }
 
 
-    public void respawn(Group group, GameObject food, Score score, Stage stage, Control control) {
+    void respawn(Group group, GameObject food, Score score, Stage stage, Control control) {
         group.getChildren().clear();
         snake.clear();
 
@@ -36,14 +38,19 @@ public class Snake {
         group.getChildren().add(snake.getFirst());
         food.setFood(group, stage); // setet neues random food und getchilded es
         score.scoreRespawn(group); // respawn Mehtode für Score
+        logSnake.info("respawn");
+        logSnake.debug("respawn");
         frameDelay = 250000000; // zurück zum Standardwert
-
+        logSnake.debug("back to value: "+frameDelay);
         control.stopMovement();
 
     }
 
-    public void snakeDead(Group group, Control control, Stage stage) {
+    void snakeDead(Group group, Control control, Stage stage) {
         //Last Minute - wird gebraucht um Score nicht zu früh zu löschen (überlegung nur respawn zu verwenden mit dieser implementierung fehlgeschlagen)
+
+        logSnake.info("snake dead!");
+        logSnake.debug("snake dead!");
 
         group.getChildren().clear();
         snake.clear();
@@ -57,10 +64,13 @@ public class Snake {
 
     private void eat(Group group, Score score, GameObject food) {//added ein tail rectangle, übernimmt color von food,erhöht score um 1, macht schneller
         snake.add(new Rectangle(20, 20));
+        logSnake.debug("eat");
         snake.getLast().setFill(Color.color(food.getColor()[0], food.getColor()[1], food.getColor()[2])); //holt sich aus deathsoundMedia GameObject die Color von Food für sein Tail
         group.getChildren().add(snake.getLast()); //bringt den tail auf die Szene
         score.upScoreValue(); // added +1 zu scoreValue
         if (frameDelay >= 80000) { //maximale Grenze sonst wirds zu schnell
+            //von speedRefresh abziehen
+            long delayDecrease = 600000;
             frameDelay -= delayDecrease;
             System.out.println(frameDelay);
         }
@@ -103,7 +113,7 @@ public class Snake {
     public void moveSnake(int dx, int dy, Stage stage) { //dx bzw dy ist jeweils + oder - speed, war zuvor 5
 
         if (dx != 0 || dy != 0) { //gibt es überhaupt dx/dy werte (wenn wir stehen z.B. nicht)
-            LinkedList<Rectangle> snakehelp = new LinkedList<>();
+            LinkedList<Rectangle> snakehelp = new LinkedList<Rectangle>();
 
             for (int i = 0; i < snake.size(); i++) {
 

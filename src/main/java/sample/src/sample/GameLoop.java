@@ -47,34 +47,36 @@ public class GameLoop extends Application {
     private Pane backgroundPane = new Pane(); //TODO NEU für Background
     private Group splashscreen = new Group();
     //TODO NEU - Background stuff
-    Image imgSource;
-    BackgroundImage backgroundImage;
-    Background backgroundView;
     private long lastUpdate = 0; //für Geschwindigkeitssteuerung
 
-    private final Logger logger = Logger.getLogger(GameLoop.class.getName());
+    private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(GameLoop.class);
 
     public static void restartIngamemusic() { //Startet Ingame Musik von vorne
         ingamemusicPlayer.seek(Duration.ZERO);
         ingamemusicPlayer.play();
+        logger.info("restart ingame");
     }
 
     public static void stopIngamemusic() {
         ingamemusicPlayer.stop();
+        logger.info("stop ingame");
     }
 
     public static void restartGameovermusic() {
         gameovermusicPlayer.seek(Duration.ZERO);
         gameovermusicPlayer.play();
+        logger.info("Game over");
     }
 
     public static void stopGameovermusic() {
         gameovermusicPlayer.stop();
+        logger.info("stop game");
     }
 
     public static void playEatsound() {
         eatsoundPlayer.seek(Duration.ZERO);
         eatsoundPlayer.play();
+        logger.info("collision - play sound");
     }
 
     public static void playDeathsound() {
@@ -85,10 +87,7 @@ public class GameLoop extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
     }
-
-
 
     public void start(final Stage primaryStage) throws Exception {
         final AnimationTimer timer;
@@ -98,17 +97,25 @@ public class GameLoop extends Application {
 
         //primaryStage.setMinHeight(50);
         //primaryStage.setMinWidth(50);
-        logger.info("Start of setUp");
+
+        //primaryStage.setMinWidth(50);
+ //       logger.debug("This is debug message");
+
+        logger.debug("Start of setup");
+        logger.info("Start of setup");
+        //System.out.println("Logic executed successfully....");
 
 
         //PM: set window according to the monitor size
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
+        logger.info("visual bounds: "+bounds);
         primaryStage.setX(bounds.getMinX());
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
+        logger.info("primary Stage width: "+bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
-        
+        logger.info("primary Stage heigth: "+bounds.getHeight());
 
         //TODO NEU - Background stuff
         //imgSource = new Image("../media/image/grassTile.png");
@@ -117,7 +124,6 @@ public class GameLoop extends Application {
         //backgroundView = new Background(backgroundImage);
         //backgroundPane.setBackground(backgroundView);
         //TODO END Background
-
 
         final int offset = 21; //TODO Variable Namen anpassen
         final Gameboard gameboard = new Gameboard(); // TODO NEW
@@ -150,9 +156,10 @@ public class GameLoop extends Application {
         
         gameboard.setStartInfo(root, primaryStage); //PM: Start Info
 
-        
         primaryStage.show();
+        logger.info("show primary Stage");
         splashPlayer.play();
+        logger.info("splash player play");
 
         ingamemusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         /*inp.setOnEndOfMedia(new Runnable() {
@@ -196,6 +203,7 @@ public class GameLoop extends Application {
             public void run() {
                 primaryStage.setScene(scene);
                 fadeblacktotransparent.play();
+                logger.info("start animation timer after intro video");
                 timer.start(); //Animationtimer startet nun erst nach dem Fade out des Hundevideos
                 restartIngamemusic();
             }

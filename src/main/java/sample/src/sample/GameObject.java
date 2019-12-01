@@ -24,7 +24,6 @@ public class GameObject {
         colors[1] = greenPart;
         colors[2] = bluePart;
         return colors;
-
     }
 
 

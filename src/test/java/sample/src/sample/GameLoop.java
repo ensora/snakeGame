@@ -18,8 +18,9 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
+
+import org.apache.log4j.Logger;
 import java.io.File;
-import java.util.logging.Logger;
 
 public class GameLoop extends Application {
 
@@ -48,7 +49,8 @@ public class GameLoop extends Application {
     Background backgroundView;
     private long lastUpdate = 0; //für Geschwindigkeitssteuerung
 
-    private final Logger logger = Logger.getLogger(GameLoop.class.getName());
+    private static Logger logger = Logger.getLogger(GameLoop.class);
+
 
     public static void restartIngamemusic() { //Startet Ingame Musik von vorne
         ingamemusicPlayer.seek(Duration.ZERO);
@@ -80,10 +82,9 @@ public class GameLoop extends Application {
     //TODO END Background
 
     public static void main(String[] args) {
+
         launch(args);
-
     }
-
 
 
     public void start(final Stage primaryStage) throws Exception {
@@ -94,8 +95,19 @@ public class GameLoop extends Application {
 
         //primaryStage.setMinHeight(50);
         //primaryStage.setMinWidth(50);
-        logger.info("Start of setUp");
+        logger.debug("This is debug message");
 
+        logger.info("This is info message");
+
+        logger.warn("This is warn message");
+
+        logger.fatal("This is fatal message");
+
+        logger.error("This is error message");
+
+        System.out.println("Logic executed successfully....");
+
+        System.out.println("start game");
 
         //PM: set window according to the monitor size
         Screen screen = Screen.getPrimary();
@@ -104,12 +116,12 @@ public class GameLoop extends Application {
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
-        
+
 
         //TODO NEU - Background stuff
         //imgSource = new Image("../media/image/grassTile.png");
         //backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
-       //         BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        //         BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         //backgroundView = new Background(backgroundImage);
         //backgroundPane.setBackground(backgroundView);
         //TODO END Background
@@ -143,10 +155,10 @@ public class GameLoop extends Application {
         splashView.setY(100);
         primaryStage.setScene(intro);
         primaryStage.setTitle("Rainbow Snake");
-        
+
         gameboard.setStartInfo(root, primaryStage); //PM: Start Info
 
-        
+
         primaryStage.show();
         splashPlayer.play();
 

@@ -14,7 +14,7 @@ public class Snake {
     public long delayDecrease = 600000;  //von speedRefresh abziehen
     //GameObject food = new GameObject();
     private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
-    private LinkedList<Rectangle> snake = new LinkedList<>();
+    private LinkedList<Rectangle> snake = new LinkedList<Rectangle>();
 
     public Snake(Group group, Stage stage) {
         snake.add(head);
@@ -104,7 +104,7 @@ public class Snake {
     public void moveSnake(int dx, int dy, Stage stage) { //dx bzw dy ist jeweils + oder - speed, war zuvor 5
 
         if (dx != 0 || dy != 0) { //gibt es überhaupt dx/dy werte (wenn wir stehen z.B. nicht)
-            LinkedList<Rectangle> snakehelp = new LinkedList<>();
+            LinkedList<Rectangle> snakehelp = new LinkedList<Rectangle>();
 
             for (int i = 0; i < snake.size(); i++) {
 
