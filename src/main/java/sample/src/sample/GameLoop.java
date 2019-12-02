@@ -95,7 +95,7 @@ public class GameLoop extends Application {
 	public void start(final Stage primaryStage) throws Exception {
 		final AnimationTimer timer;
 		final int offset = 21; 
-		final Gameboard gameboard = new Gameboard(); 
+		final Gameboard gameboard; 
 		final Control control = new Control();
 		final Snake snake;
 		final GameObject food = new GameObject();
@@ -120,6 +120,8 @@ public class GameLoop extends Application {
 		/** Code moved to setBackground() */
 
 		setBackground();
+		
+		gameboard = new Gameboard(root, primaryStage); 
 		snake = new Snake(root, primaryStage); 
 		food.setFood(root, primaryStage);
 
@@ -135,7 +137,7 @@ public class GameLoop extends Application {
 
 		primaryStage.setTitle("Rainbow Snake");
 
-		gameboard.setStartInfo(root, primaryStage); 
+		gameboard.setStartInfo(); 
 
 		primaryStage.show();
 		logger.info("show primary Stage");

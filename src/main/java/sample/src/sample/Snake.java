@@ -11,9 +11,11 @@ import java.util.LinkedList;
 
 public class Snake {
 
-    private static long frameDelay = 250000000; //250-300 mill. guter Startwert
-    private Rectangle head = new Rectangle(20, 20); // hier Initialisiert, weil in mehreren Methoden
+    private static long frameDelay = 250000000; 
+    private Rectangle head = new Rectangle(20, 20); 
     private LinkedList<Rectangle> snake = new LinkedList<Rectangle>();
+    
+
 
     private static org.apache.log4j.Logger logSnake = org.apache.log4j.Logger.getLogger(Snake.class);
 
@@ -81,8 +83,9 @@ public class Snake {
         Bounds headBox = head.getBoundsInParent(); // erstellt eine Boundary um den Snakekopf
 
 
-        if (headBox.intersects(foodBound)) {//überprüfung Collision Head mit Food Boundary
-            eat(group, score, food);
+
+        if (headBox.intersects(foodBound)) {
+        	eat(group, score, food);
             food.setFood(group, stage);
             GameLoop.playEatsound();
         }
@@ -90,7 +93,7 @@ public class Snake {
         if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // Überprüfung ob Head den Rand trifft
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
             snakeDead(group, control, stage);
-            gameboard.setDeathTouchWall(score, group, stage);
+            gameboard.setDeathTouchWall(score);
             GameLoop.playDeathsound();
             GameLoop.stopIngamemusic();
             GameLoop.restartGameovermusic();
@@ -101,7 +104,7 @@ public class Snake {
             if (headBox.intersects(this.snake.get(i).getBoundsInParent())) {
                 System.err.println("Dead");
                 snakeDead(group, control, stage);
-                gameboard.setDeathTouchTail(score, group, stage);
+                gameboard.setDeathTouchTail(score);
                 GameLoop.playDeathsound();
                 GameLoop.stopIngamemusic();
                 GameLoop.restartGameovermusic();
