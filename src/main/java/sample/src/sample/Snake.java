@@ -92,7 +92,7 @@ public class Snake {
         if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // Überprüfung ob Head den Rand trifft
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
             snakeDead(group, control, stage);
-            gameboard.setDeathTouchWall(score, group, stage);
+            gameboard.setDeathTouchWall(score);
             GameLoop.playDeathsound();
             //GameLoop.stopIngamemusic();
             //GameLoop.restartGameovermusic();
@@ -103,7 +103,7 @@ public class Snake {
             if (headBox.intersects(this.snake.get(i).getBoundsInParent())) {
                 System.err.println("Dead");
                 snakeDead(group, control, stage);
-                gameboard.setDeathTouchTail(score, group, stage);
+                gameboard.setDeathTouchTail(score);
                 GameLoop.playDeathsound();
                 //GameLoop.stopIngamemusic();
                 //GameLoop.restartGameovermusic();
