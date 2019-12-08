@@ -1,4 +1,4 @@
-package sample.src.sample;
+package asd.arch;
 
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
@@ -20,6 +20,13 @@ import javafx.scene.media.Media;
 import javafx.util.Duration;
 
 import java.io.File;
+
+import asd.arch.Control;
+import asd.arch.GameLoop;
+import asd.entities.GameObject;
+import asd.entities.Gameboard;
+import asd.entities.Score;
+import asd.entities.Snake;
 
 public class GameLoop extends Application {
 
@@ -98,7 +105,7 @@ public class GameLoop extends Application {
 		final Gameboard gameboard; 
 		final Control control = new Control();
 		final Snake snake;
-		final GameObject food = new GameObject();
+		final GameObject food = new GameObject(); 
 		final Score score = new Score(root);
 		final FadeTransition fadeblacktotransparent;
 
@@ -122,7 +129,7 @@ public class GameLoop extends Application {
 		setBackground();
 		
 		gameboard = new Gameboard(root, primaryStage); 
-		snake = new Snake(root, primaryStage); 
+		snake = new Snake(root, primaryStage);
 		food.setFood(root, primaryStage);
 
 		fadeblacktotransparent = setFadeTransition(primaryStage);

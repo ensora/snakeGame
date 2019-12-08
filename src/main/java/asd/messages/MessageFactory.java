@@ -1,8 +1,8 @@
-package sample.src.sample;
+package asd.messages;
 
+import asd.entities.Gameboard.MessageType;
 import javafx.scene.Group;
 import javafx.stage.Stage;
-import sample.src.sample.Gameboard.MessageType;
 
 public class MessageFactory {
 

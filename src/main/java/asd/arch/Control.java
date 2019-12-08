@@ -1,5 +1,9 @@
-package sample.src.sample;
+package asd.arch;
 
+import asd.arch.GameLoop;
+import asd.entities.GameObject;
+import asd.entities.Score;
+import asd.entities.Snake;
 import javafx.scene.Group;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -8,7 +12,7 @@ public class Control {
 
     private boolean goUp, goDown, goRight, goLeft;
 
-    void stopMovement() {
+    public void stopMovement() {
         goUp = false;
         goDown = false;
         goRight = false;
