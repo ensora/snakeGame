@@ -1,4 +1,4 @@
-package sample.src.sample;
+package asd;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;

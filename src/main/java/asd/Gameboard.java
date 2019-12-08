@@ -1,4 +1,4 @@
-package sample.src.sample;
+package asd;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class Gameboard {
 	private Stage stage;
 	private MessageFactory messageFactory= new MessageFactory();
 
-    enum MessageType 
+    public enum MessageType 
     { 
         EATENTAIL, RANINTOWALL;
     } 
@@ -26,7 +26,7 @@ public class Gameboard {
     	this.stage = stage;   	
     }
 
-    void setStartInfo() {
+    public void setStartInfo() {
     	Label startInfo = new Label("\nTo move press w/a/s/d. \nDon't hit the walls!");
     	startInfo.setFont(new Font("Calibri",50));
     	startInfo.setTextFill(Color.BLACK);

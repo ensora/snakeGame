@@ -1,4 +1,4 @@
-package sample.src.sample;
+package asd;
 
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
@@ -44,8 +44,8 @@ public class Snake {
         snake.getFirst().relocate(stage.getWidth() / 2, stage.getHeight() / 2);
         group.getChildren().add(snake.getFirst());
         food.setFood(group, stage); // setet neues random food und getchilded es
-        score.scoreRespawn(group); // respawn Mehtode fÃ¼r Score
-        frameDelay = START_FRAMEDELAY; // zurÃ¼ck zum Standardwert
+        score.scoreRespawn(group); // respawn Mehtode für Score
+        frameDelay = START_FRAMEDELAY; // zurück zum Standardwert
 
 
         control.stopMovement();
@@ -53,22 +53,22 @@ public class Snake {
     }
 
     public void snakeDead(Group group, Control control, Stage stage) {
-        //Last Minute - wird gebraucht um Score nicht zu frÃ¼h zu lÃ¶schen (Ã¼berlegung nur respawn zu verwenden mit dieser implementierung fehlgeschlagen)
+        //Last Minute - wird gebraucht um Score nicht zu früh zu löschen (überlegung nur respawn zu verwenden mit dieser implementierung fehlgeschlagen)
 
         group.getChildren().clear();
         snake.clear();
         snake.add(head);
         snake.getFirst().relocate(stage.getWidth() / 2, stage.getHeight() / 2);
 
-        frameDelay = START_FRAMEDELAY; // zurÃ¼ck zum Standardwert
+        frameDelay = START_FRAMEDELAY; // zurück zum Standardwert
         control.stopMovement();
 
     }
 
 
-    private void eat(Group group, Score score, GameObject food) {//added ein tail rectangle, Ã¼bernimmt color von food,erhÃ¶ht score um 1, macht schneller
+    private void eat(Group group, Score score, GameObject food) {//added ein tail rectangle, übernimmt color von food,erhöht score um 1, macht schneller
         snake.add(new Rectangle(20, 20));
-        snake.getLast().setFill(Color.color(food.getColor()[0], food.getColor()[1], food.getColor()[2])); //holt sich aus deathsoundMedia GameObject die Color von Food fÃ¼r sein Tail
+        snake.getLast().setFill(Color.color(food.getColor()[0], food.getColor()[1], food.getColor()[2])); //holt sich aus deathsoundMedia GameObject die Color von Food für sein Tail
         group.getChildren().add(snake.getLast()); //bringt den tail auf die Szene
         score.upScoreValue(); // added +1 zu scoreValue
 
@@ -79,31 +79,31 @@ public class Snake {
 
     }
 
-    public void collision(GameObject food, Group group, Bounds foodBound, Score score, Control control, Stage stage, Gameboard gameboard) { //gameobject sind obstacles so wie Food, Boundarys fÃ¼r Collisions
+    public void collision(GameObject food, Group group, Bounds foodBound, Score score, Control control, Stage stage, Gameboard gameboard) { //gameobject sind obstacles so wie Food, Boundarys für Collisions
         Bounds headBox = head.getBoundsInParent(); // erstellt eine Boundary um den Snakekopf
 
 
-        if (headBox.intersects(foodBound)) {//Ã¼berprÃ¼fung Collision Head mit Food Boundary
+        if (headBox.intersects(foodBound)) {//überprüfung Collision Head mit Food Boundary
             eat(group, score, food);
             food.setFood(group, stage);
             GameLoop.playEatsound();
         }
 
-        if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // ÃœberprÃ¼fung ob Head den Rand trifft
+        if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 || // Überprüfung ob Head den Rand trifft
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
             snakeDead(group, control, stage);
-            gameboard.setDeathTouchWall(score, group, stage);
+            gameboard.setDeathTouchWall(score);
             GameLoop.playDeathsound();
             //GameLoop.stopIngamemusic();
             //GameLoop.restartGameovermusic();
         }
 
 
-        for (int i = 1; i < this.snake.size(); i++) { //ÃœberprÃ¼fung Snake beisst sich in den oasch
+        for (int i = 1; i < this.snake.size(); i++) { //Überprüfung Snake beisst sich in den oasch
             if (headBox.intersects(this.snake.get(i).getBoundsInParent())) {
                 System.err.println("Dead");
                 snakeDead(group, control, stage);
-                gameboard.setDeathTouchTail(score, group, stage);
+                gameboard.setDeathTouchTail(score);
                 GameLoop.playDeathsound();
                 //GameLoop.stopIngamemusic();
                 //GameLoop.restartGameovermusic();
@@ -115,7 +115,7 @@ public class Snake {
     public void moveSnake(int dx, int dy, Stage stage) { //dx bzw dy ist jeweils + oder - speed, war zuvor 5
         int helpX;
         int helpY;
-        if (dx != 0 || dy != 0) { //gibt es Ã¼berhaupt dx/dy werte (wenn wir stehen z.B. nicht)
+        if (dx != 0 || dy != 0) { //gibt es überhaupt dx/dy werte (wenn wir stehen z.B. nicht)
             LinkedList<Rectangle> snakehelp = new LinkedList<Rectangle>();
 
             for (int i = 0; i < snake.size(); i++) {
