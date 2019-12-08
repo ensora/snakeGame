@@ -23,7 +23,7 @@ import java.io.File;
 
 import asd.arch.Control;
 import asd.arch.GameLoop;
-import asd.entities.GameObject;
+import asd.entities.FoodObject;
 import asd.entities.Gameboard;
 import asd.entities.Score;
 import asd.entities.Snake;
@@ -105,7 +105,7 @@ public class GameLoop extends Application {
 		final Gameboard gameboard; 
 		final Control control = new Control();
 		final Snake snake;
-		final GameObject food = new GameObject(); 
+		final FoodObject food; 
 		final Score score = new Score(root);
 		final FadeTransition fadeblacktotransparent;
 
@@ -130,7 +130,8 @@ public class GameLoop extends Application {
 		
 		gameboard = new Gameboard(root, primaryStage); 
 		snake = new Snake(root, primaryStage);
-		food.setFood(root, primaryStage);
+		food = new FoodObject(root, primaryStage);
+		food.setFood();
 
 		fadeblacktotransparent = setFadeTransition(primaryStage);
 

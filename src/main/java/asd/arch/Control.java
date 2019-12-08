@@ -1,7 +1,7 @@
 package asd.arch;
 
 import asd.arch.GameLoop;
-import asd.entities.GameObject;
+import asd.entities.FoodObject;
 import asd.entities.Score;
 import asd.entities.Snake;
 import javafx.scene.Group;
@@ -37,7 +37,7 @@ public class Control {
     }
 
 
-    public void keyHandler(KeyEvent keyEvent, Snake snake, Group group, GameObject food, Score score, Stage stage) {
+    public void keyHandler(KeyEvent keyEvent, Snake snake, Group group, FoodObject food, Score score, Stage stage) {
 
         switch (keyEvent.getCode()) {
             case W:
