@@ -1,4 +1,4 @@
-package asd;
+package asd.arch;
 
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
@@ -21,8 +21,12 @@ import javafx.util.Duration;
 
 import java.io.File;
 
-import asd.Control;
-import asd.GameLoop;
+import asd.arch.Control;
+import asd.arch.GameLoop;
+import asd.entities.GameObject;
+import asd.entities.Gameboard;
+import asd.entities.Score;
+import asd.entities.Snake;
 
 public class GameLoop extends Application {
 

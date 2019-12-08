@@ -1,4 +1,4 @@
-package asd;
+package asd.entities;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;

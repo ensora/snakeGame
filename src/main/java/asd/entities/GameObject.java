@@ -1,4 +1,4 @@
-package asd;
+package asd.entities;
 
 import javafx.geometry.Bounds;
 import javafx.scene.Group;

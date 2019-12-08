@@ -1,6 +1,9 @@
-package asd;
+package asd.arch;
 
-import asd.GameLoop;
+import asd.arch.GameLoop;
+import asd.entities.GameObject;
+import asd.entities.Score;
+import asd.entities.Snake;
 import javafx.scene.Group;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;

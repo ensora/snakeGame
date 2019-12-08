@@ -1,4 +1,4 @@
-package asd;
+package asd.messages;
 
 import java.util.ArrayList;
 import java.util.Collection;

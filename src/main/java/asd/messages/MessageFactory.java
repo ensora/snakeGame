@@ -1,6 +1,6 @@
-package asd;
+package asd.messages;
 
-import asd.Gameboard.MessageType;
+import asd.entities.Gameboard.MessageType;
 import javafx.scene.Group;
 import javafx.stage.Stage;
 

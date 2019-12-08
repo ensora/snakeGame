@@ -1,7 +1,9 @@
-package asd;
+package asd.entities;
 
 import java.util.Random;
 
+import asd.messages.IMessage;
+import asd.messages.MessageFactory;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;

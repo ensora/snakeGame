@@ -1,4 +1,4 @@
-package asd;
+package asd.entities;
 
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
@@ -7,6 +7,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.LinkedList;
+
+import asd.arch.Control;
+import asd.arch.GameLoop;
 
 public class Snake {
 

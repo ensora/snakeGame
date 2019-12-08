@@ -1,4 +1,4 @@
-package asd;
+package asd.arch;
 
 import org.junit.jupiter.api.Test;
 
