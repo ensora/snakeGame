@@ -201,3 +201,9 @@ hs_err_pid*
 /resources/apache-log4j-2.12.1-bin/NOTICE.txt
 /resources/apache-log4j-2.12.1-bin/RELEASE-NOTES.md
 /target/
+*.iml
+*.xml
+.idea/modules.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/workspace.xml
