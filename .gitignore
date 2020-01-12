@@ -157,7 +157,7 @@ fabric.properties
 
 # temp Files
 src/sample/log4j.properties
-pom.xml
+
 
 
 

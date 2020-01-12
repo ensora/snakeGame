@@ -1,6 +1,7 @@
 package asd.messages;
 
 import asd.entities.Gameboard.MessageType;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,11 +13,16 @@ class MessageFactoryTest {
 	MessageFactory testMessageFactory = new MessageFactory();
 	private Object MessageTypeNotSupportedException;
 
+	@Before
+	public void init() {
+
+	}
+
 	@Test
 	void testGetWallMessage() throws MessageTypeNotSupportedException {
 		IMessage testMessage = testMessageFactory.getMessage(MessageType.RANINTOWALL);
 
-		assertTrue(testMessage != null);
+		assertTrue(testMessage.getMsgType() == MessageType.RANINTOWALL);
 
 	}
 
@@ -24,7 +30,7 @@ class MessageFactoryTest {
 	void testEatenTailMessage() throws MessageTypeNotSupportedException {
 		IMessage testMessage = testMessageFactory.getMessage(MessageType.EATENTAIL);
 
-		assertTrue(testMessage != null);
+		assertTrue(testMessage.getMsgType() == MessageType.EATENTAIL);
 
 	}
 
