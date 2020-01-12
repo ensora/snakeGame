@@ -15,6 +15,7 @@ public class Snake {
 
 	private static final long START_FRAMEDELAY = 250000000;
 	private static final long MAX_FRAMEDELAY = 80000;
+
 	private static final long DECREASE_DELAY = 6000000;
     public long frameDelay = START_FRAMEDELAY;
     private int helpX;
@@ -23,6 +24,7 @@ public class Snake {
     private static int rectangleHeight = 20;
 
     private Rectangle head = new Rectangle(20, 20);
+
     private LinkedList<Rectangle> snake = new LinkedList<Rectangle>();
 
     public Snake(Group group, Stage stage) {
@@ -44,25 +46,31 @@ public class Snake {
         snake.add(head);
         snake.getFirst().relocate(stage.getWidth() / 2, stage.getHeight() / 2);
         group.getChildren().add(snake.getFirst());
+
         food.setFood();
         score.scoreRespawn(group);
         frameDelay = START_FRAMEDELAY;
 
-        control.stopMovement();
 
+        control.stopMovement();
     }
 
     public void snakeDead(Group group, Control control, Stage stage) {
+
+
 
         group.getChildren().clear();
         snake.clear();
         snake.add(head);
         snake.getFirst().relocate(stage.getWidth() / 2, stage.getHeight() / 2);
 
+
         frameDelay = START_FRAMEDELAY;
+
         control.stopMovement();
 
     }
+
 
 
     private void eat(Group group, Score score, FoodObject food) {
@@ -71,12 +79,13 @@ public class Snake {
         group.getChildren().add(snake.getLast());
         score.upScoreValue();
 
+
         if (frameDelay >= MAX_FRAMEDELAY) {
             frameDelay -= DECREASE_DELAY;
             System.out.println(frameDelay);
         }
-
     }
+
 
     public void collision(FoodObject food, Group group, Bounds foodBound, Score score, Control control, Stage stage, Gameboard gameboard) { //gameobject sind obstacles so wie Food, Boundarys f�r Collisions
         Bounds headBox = head.getBoundsInParent();
@@ -88,6 +97,7 @@ public class Snake {
         }
 
         if (head.getLayoutX() <= 0 || head.getLayoutX() >= stage.getWidth() - 30 ||
+
                 head.getLayoutY() <= 0 || head.getLayoutY() >= stage.getHeight() - 54) {
             snakeDead(group, control, stage);
             gameboard.setDeathTouchWall(score);
@@ -97,7 +107,9 @@ public class Snake {
         }
 
 
+
         for (int i = 1; i < this.snake.size(); i++) {
+
             if (headBox.intersects(this.snake.get(i).getBoundsInParent())) {
                 System.err.println("Dead");
                 snakeDead(group, control, stage);
@@ -113,7 +125,9 @@ public class Snake {
     public void moveSnake(int dx, int dy, Stage stage) {
         int helpX;
         int helpY;
+      
         if (dx != 0 || dy != 0) {
+
             LinkedList<Rectangle> snakehelp = new LinkedList<Rectangle>();
 
             for (int i = 0; i < snake.size(); i++) {
