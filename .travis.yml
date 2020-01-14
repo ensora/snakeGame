@@ -3,3 +3,12 @@ language: java
 #we add the java development kit (jdk)
 jdk:
   -openjdk8
+
+services:
+  - xvfb
+
+before_install:
+  - sudo apt update
+  - sudo apt install openjfx
+
+install: true
