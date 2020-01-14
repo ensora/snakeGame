@@ -5,6 +5,7 @@ This repository contains the Snake game code from ASD Project Group(Alice). It i
 
 ## Built With 
 * [Maven](https://maven.apache.org/) - Dependency Management
+[![Build Status](https://travis-ci.com/ensora/snakeGame.svg)](https://travis-ci.com/ensora/snakeGame)
 
 ## Versioning
 Please see tags in this repository concerning vesioning
@@ -15,3 +16,4 @@ Code refactoring, minor game changes, and rudimentary JUnit tests
 
 ## Project Group Members
 Alice Ensor, Bernhard Hartmann, Pavol Malo and Mohammad Bashar Wattar
+
